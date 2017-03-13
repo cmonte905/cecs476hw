@@ -1,0 +1,44 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+1.
+3c501.c
+3c503.c
+3c505.c
+2.
+DE203 Turbo
+DE204 Turbo
+DE205 Turbo
+
+3.
+Extra ground pins
+4.
+lab35.net.cecs.csulb.edu
+hostname -f
+5.
+eth0      Link encap:Ethernet  HWaddr 00:22:4d:4c:78:36  
+6.
+          inet addr:134.139.248.35  Bcast:134.139.248.63  Mask:255.255.255.224
+7.
+default         jaguar.net.cecs 0.0.0.0         UG    1      0        0 eth0
+8.
+ddr:127.0.0.1  Mask:255.0.0.0
+9.
+? (134.139.248.40) at 00:22:4d:4c:79:90 [ether] on eth0
+? (134.139.248.33) at 00:01:02:76:98:a8 [ether] on eth0
+? (134.139.248.36) at 00:22:4d:4c:7a:14 [ether] on eth0
+? (134.139.248.34) at 00:22:4d:4c:79:9c [ether] on eth0
+10.
+files, dns
+11.
+nameserver 134.139.248.17
+12.
+search net.cecs.csulb.edu cecs.csulb.edu
+13.
+cheetah and jaguar 
+14.
+localnet        jaguar.net.cecs 255.255.255.224 UG    0      0        0 eth0
+15.
+134.139.43.0 / 134.139.43.255
+16.
+134.139.201.128 / 134.139.201.159

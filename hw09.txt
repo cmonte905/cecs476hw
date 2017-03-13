@@ -1,0 +1,42 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+Dont Zap
+2.
+Auto BusMouse GlidePoint GlidePointPS/2 IntelliMouse IMPS/2
+Logitech Microsoft MMHitTab MMSeries Mouseman MouseManPlusPS/2
+MouseSystems NetMousePS/2 NetScrollPS/2 OSMouse PS/2 SysMouse
+ThinkingMouse ThinkingMousePS/2 Xqueue
+2b.
+ps/2
+2c.
+fvwm2
+3a.
+USB logitech optical mouse
+3b.
+1280x1024
+4.
+input/mouse
+5a.
+fvwm2
+5b.
+3 xterms
+5c.
+F1 and F3, one raises and the other raises and focuses 
+6a.
+xintrc.fvwm 
+xterm -n "x1" -g 80x24+0+0 -sb 300&
+xterm -n "x1" -g 80x24-0-0 -sb 300&
+6b.
+change the xinitrc file to say twm at the bottom 
+7a. 
+1280x1024
+7b.
+60.02
+8.
+we made a .xinitrc file, put in :
+xterm -n "x1" -g 80x24+0+0 -sb -sl 300 &
+xsetroot -solid red
+twm

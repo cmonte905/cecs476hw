@@ -1,0 +1,7 @@
+Cesar Montelongo
+csa476w1
+lab36.net.cecs.csulb.edu
+cheetah.cecs.csulb.edu
+/net/cheetah/u3/c/csa476/w1
+/net/cheetah/u3/c/csa476/w1
+lrwxrwxrwx  1 root root    3 Aug 21  2011 adm -> log/

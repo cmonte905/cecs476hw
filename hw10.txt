@@ -1,0 +1,25 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+tar -cf /dev/fd0 . #in bobs directory 
+
+2. 
+tar -xpf ~djv/giant.tgz 
+fee fie foe 
+rw r r djv faculty fum
+
+3.
+tar -xpf ~djv/house.txz
+Huff and puff
+
+4.
+Hi there joe
+
+5. 
+ul
+
+6.
+control S 
+stty stop ^Y

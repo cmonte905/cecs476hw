@@ -1,0 +1,14 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+#s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
+2.
+#ca::ctrlaltdel:/sbin/shutdown -t5 -r now
+3.
+5 seconds 
+4.
+*/1 * * * * ls >> cronls.txt
+5.
+at 18:22 -f lscron

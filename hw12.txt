@@ -1,0 +1,32 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+edit the hosts file to be lab35 instead of lab34
+ifconfig lo 127.0.0.1
+ifconfig eth0 134.139.248.35 netmask 255.255.255.248
+route add default gw 134.139.248.17
+2.
+
+3.
+comment out the telnet server 
+4.
+put in panther in the file
+5.
+portmapper
+status
+ypbind
+rquotad
+nfs
+nlockmgr
+mountd
+6.
+rlogin lab35 bob
+7.
+added puma to the /etc/hosts.equiv on root, actual machine
+8.
+ssh-keygen -t rsa 
+scp the public key to bob 
+made him a .ssh dir, added the key in the dir 
+appended the new key to authorized_keys

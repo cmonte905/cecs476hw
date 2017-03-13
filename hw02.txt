@@ -1,0 +1,26 @@
+1. 100 
+2. 30
+3. /net/aardvark/u1/volper
+4. /bin/csh
+5. faculty:x:30
+6. 
+mail:x:12:mail,djv
+dialout:x:16:uucp,djv
+users:x:100:djv
+7. 60, 71, 72
+
+8. 
+root
+9. January 2017
+
+10. date -d @Number 
+
+11. Based on the reaction of the local admin about the shadow file being readable on cheetah, users should not have 
+		access to that file as it contains the root password. Despite it being encrypted, if someone takes the time, 
+		they can brute force their way and gain root access.
+
+12. 5 + 1 I set up 
+
+13. 9
+
+14. alias p="ps aux"

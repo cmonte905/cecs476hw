@@ -1,0 +1,21 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+a) Used the fdisk command with the paramater of /dev/sdb, created 2 new partitions, switched the first 
+	partition to be swap and then created the rest as linux space.
+b) mount /dev/sdb1 /newdisk  
+
+Filesystem     1K-blocks  Used Available Use% Mounted on
+/dev/sdb2       68664948 53012  65123884   1% /newdisk
+
+2. 
+/dev/sdb2	 /newdisk 	  ext2        defaults         0   0 
+
+3.
+/dev/fd0         /mnt/extdisk     ext2	      user	       0   0
+
+4.
+fsck /dev/fd0 
+It did 5 passes, checked inodes, then directory structure, directory connectivity, references, and group summary info.

@@ -1,0 +1,33 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+#Edited the passwd file to include both bob and sue
+vim /etc/passwd 
+#Edited the shadow file to include both bob and sue, then ran the passwd command on both of them
+vim /etc/shadow
+passwd bob 
+passwd sue
+
+mkdir ~bob
+mkdir ~sue
+
+cp /etc/skel/.xsession ~bob
+cp /etc/skel/.screenrc ~bob
+cp ~djv/.bash_profile ~bob 
+cp ~djv/.login ~bob 
+
+cp /etc/skel/.xsession ~sue
+cp /etc/skel/.screenrc ~sue
+cp ~djv/.bash_profile ~sue
+cp ~djv/.login ~sue
+
+#Added the content of the demo file
+vim demo
+b/demo ~ #I was in sue when I copied the demo file
+
+chmod 755 ~bob
+chmod 755 ~sue
+
+chown -R bob.cecsu ~bob
+chown -R sue.cecsg ~sue

@@ -1,0 +1,39 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+16:51:41 up 24 days, 51 min,
+2.
+6 users,
+3.
+load average: 0.00, 0.01, 0.05
+4.
+1,0,99
+5.
+1929MB used, 26MB free
+6. 
+Apparently for me its named, named, named 
+7.
+6 total 
+8.
+4 total 
+9.
+6300 VM, 652 RES
+10.
+Swap partition located at /dev/sda1
+11.
+a. 1976000
+b.325460    
+c.27664     
+d.7813940          
+e. 0 
+12.
+touch /swapfile
+dd if=/dev/zero of=/swapfile bs=1024 count=4096
+mkswap /swapfile
+swapon /swapfile 
+13.
+Swap:      7818032          0    7818032
+14.
+Swap 15G available, 15G free

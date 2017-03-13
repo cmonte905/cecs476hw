@@ -1,0 +1,32 @@
+Cesar Montelongo 
+csa476w1
+lab36.net.cecs.csulb.edu
+
+25 /etc/passwd wc -l
+
+/etc/inetd.conf locate inetd
+
+/bin/df locate df | less
+
+/etc/xorg.conf-vesa cd /etc/X11, ls 
+
+/usr/lib64/libXfontcache.la*
+/usr/lib64/libXfontcache.so@
+/usr/lib64/libXfontcache.so.1@
+/usr/lib64/libXfontcache.so.1.0.0*
+ls /usr/lib64/*Xfontcache*
+
+cpu MHz		: 2992.053
+cpu MHz		: 2992.053
+cat /proc/cpuinfo | grep MHz >> hw01.txt
+
+total 108388
+-rw-r--r--  1 root root     5953880 Jan 26 18:16 lastlog
+-rw-r--r--  1 root root     7388413 Jan 26 18:16 messages
+-rw-r--r--  1 root root    79050104 Jan 26 18:16 syslog
+ls -tal /var/log/ | head -4 >> hw01.txt
+
+Jan 26 18:14:14 jaguar sshd[7512]: Accepted password for csa476w1 from 134.139.248.36 port 60110 ssh2
+Jan 26 18:16:06 jaguar sshd[7580]: Accepted password for csa476t1 from 134.139.248.17 port 33853 ssh2
+Jan 26 18:20:12 jaguar sshd[7399]: Received disconnect from 134.139.248.17: 11: disconnected by user
+cat /var/log/messages | tail -3 >> hw01.txt

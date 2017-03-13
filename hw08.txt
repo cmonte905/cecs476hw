@@ -1,0 +1,13 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+Feb 21 19:10 bzImage
+2.
+#4 SMP Tue Feb 21 19:10:03 PST 2017
+
+3.
+5.6M  bzImage
+2.9M  vmlinuz-generic-2.6.37.6
+5.6M  vmlinuz-huge-2.6.37.6

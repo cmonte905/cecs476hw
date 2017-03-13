@@ -1,0 +1,62 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1
+csa476w1  5293  0.0  0.1  18348  2288 tty2     Ss+  Feb02   0:00 -bash
+root      6774  0.0  0.1  14316  2400 tty1     Ss+  Feb06   0:00 -bash
+bob       7412  0.0  0.1  18576  2520 tty3     Ss   17:46   0:00 -bash
+bob       7544  0.0  0.0   6848   984 tty3     S+   18:59   0:00 grep bash
+
+2.
+#!/bin/bash
+#Checks to see if there is a directory 
+test -d $1
+if [ $? != 0 ] ; then
+		echo "Sorry"
+		exit
+fi
+
+#For loop to print out executables
+for files in `ls $1`
+do
+		test -x $1/$files
+		if [ $? == 0 ] ; then
+				test -d $1/$files
+				if [ $? != 0 ] ; then
+						echo $files
+				fi
+		fi
+done
+
+3.
+/dev/root       413G   20G  373G   5% /   #sda2
+/dev/sdb1       459G   26G  410G   6% /u3
+/dev/sdc1       459G  141G  296G  33% /u4
+
+4.
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       413G   20G  373G   5% /
+
+5.
+/dev/root on / type ext4 (rw,relatime,barrier=1,stripe=1,data=ordered)
+
+6.
+4.0K	./.fvwm
+4.0K	./.emacs.d/auto-save-list
+8.0K	./.emacs.d
+8.0K	./.ssh
+124K	.
+
+7.
+/dev/sdb1        /u3              ext4        defaults         1   1
+
+8.
+Filesystem state:         not clean
+Block size:               4096
+536
+
+9.
+Disk /dev/sda: 80.0 GB, 80025280000 bytes
+/dev/sda1            2048    15629937     7813945   82  swap file
+/dev/sda2        15629938   156299374    70334718+  83  space for root 
