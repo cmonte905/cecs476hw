@@ -1,0 +1,478 @@
+Hw 0 
+Cesar Montelongo
+
+
+
+
+csa476w1
+
+
+lab36.net.cecs.csulb.edu
+
+
+cheetah.cecs.csulb.edu
+
+
+/net/cheetah/u3/c/csa476/w1
+
+
+/net/cheetah/u3/c/csa476/w1
+
+
+lrwxrwxrwx  1 root root    3 Aug 21  2011 adm -> log/
+Hw 1 
+Cesar Montelongo 
+csa476w1
+lab36.net.cecs.csulb.edu
+
+25 /etc/passwd wc -l
+
+/etc/inetd.conf locate inetd
+
+/bin/df locate df | less
+
+/etc/xorg.conf-vesa cd /etc/X11, ls 
+
+/usr/lib64/libXfontcache.la*
+/usr/lib64/libXfontcache.so@
+/usr/lib64/libXfontcache.so.1@
+/usr/lib64/libXfontcache.so.1.0.0*
+ls /usr/lib64/*Xfontcache*
+
+cpu MHz		: 2992.053
+cpu MHz		: 2992.053
+cat /proc/cpuinfo | grep MHz >> hw01.txt
+
+total 108388
+-rw-r--r--  1 root root     5953880 Jan 26 18:16 lastlog
+-rw-r--r--  1 root root     7388413 Jan 26 18:16 messages
+-rw-r--r--  1 root root    79050104 Jan 26 18:16 syslog
+ls -tal /var/log/ | head -4 >> hw01.txt
+
+Jan 26 18:14:14 jaguar sshd[7512]: Accepted password for csa476w1 from 134.139.248.36 port 60110 ssh2
+Jan 26 18:16:06 jaguar sshd[7580]: Accepted password for csa476t1 from 134.139.248.17 port 33853 ssh2
+Jan 26 18:20:12 jaguar sshd[7399]: Received disconnect from 134.139.248.17: 11: disconnected by user
+cat /var/log/messages | tail -3 >> hw01.txt
+
+Hw 2
+1. 100 
+2. 30
+3. /net/aardvark/u1/volper
+4. /bin/csh
+5. faculty:x:30
+6. 
+mail:x:12:mail,djv
+dialout:x:16:uucp,djv
+users:x:100:djv
+7. 60, 71, 72
+
+8. 
+root
+9. January 2017
+
+10. date -d @Number 
+
+11. Based on the reaction of the local admin about the shadow file being readable on cheetah, users should not have 
+		access to that file as it contains the root password. Despite it being encrypted, if someone takes the time, 
+		they can brute force their way and gain root access.
+
+12. 5 + 1 I set up 
+
+13. 9
+
+14. alias p="ps aux"
+
+
+Hw 3 
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+#Edited the passwd file to include both bob and sue
+vim /etc/passwd 
+#Edited the shadow file to include both bob and sue, then ran the passwd command on both of them
+vim /etc/shadow
+passwd bob 
+passwd sue
+
+mkdir ~bob
+mkdir ~sue
+
+cp /etc/skel/.xsession ~bob
+cp /etc/skel/.screenrc ~bob
+cp ~djv/.bash_profile ~bob 
+cp ~djv/.login ~bob 
+
+cp /etc/skel/.xsession ~sue
+cp /etc/skel/.screenrc ~sue
+cp ~djv/.bash_profile ~sue
+cp ~djv/.login ~sue
+
+#Added the content of the demo file
+vim demo
+b/demo ~ #I was in sue when I copied the demo file
+
+chmod 755 ~bob
+chmod 755 ~sue
+
+chown -R bob.cecsu ~bob
+chown -R sue.cecsg ~sue
+
+
+Hw 4
+
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1
+csa476w1  5293  0.0  0.1  18348  2288 tty2     Ss+  Feb02   0:00 -bash
+root      6774  0.0  0.1  14316  2400 tty1     Ss+  Feb06   0:00 -bash
+bob       7412  0.0  0.1  18576  2520 tty3     Ss   17:46   0:00 -bash
+bob       7544  0.0  0.0   6848   984 tty3     S+   18:59   0:00 grep bash
+
+2.
+#!/bin/bash
+#Checks to see if there is a directory 
+test -d $1
+if [ $? != 0 ] ; then
+		echo "Sorry"
+		exit
+fi
+
+#For loop to print out executables
+for files in `ls $1`
+do
+		test -x $1/$files
+		if [ $? == 0 ] ; then
+				test -d $1/$files
+				if [ $? != 0 ] ; then
+						echo $files
+				fi
+		fi
+done
+
+3.
+/dev/root       413G   20G  373G   5% /   #sda2
+/dev/sdb1       459G   26G  410G   6% /u3
+/dev/sdc1       459G  141G  296G  33% /u4
+
+4.
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       413G   20G  373G   5% /
+
+5.
+/dev/root on / type ext4 (rw,relatime,barrier=1,stripe=1,data=ordered)
+
+6.
+4.0K	./.fvwm
+4.0K	./.emacs.d/auto-save-list
+8.0K	./.emacs.d
+8.0K	./.ssh
+124K	.
+
+7.
+/dev/sdb1        /u3              ext4        defaults         1   1
+
+8.
+Filesystem state:         not clean
+Block size:               4096
+536
+
+9.
+Disk /dev/sda: 80.0 GB, 80025280000 bytes
+/dev/sda1            2048    15629937     7813945   82  swap file
+/dev/sda2        15629938   156299374    70334718+  83  space for root
+
+Hw 5
+
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+a) Used the fdisk command with the paramater of /dev/sdb, created 2 new partitions, switched the first 
+	partition to be swap and then created the rest as linux space.
+b) mount /dev/sdb1 /newdisk  
+
+Filesystem     1K-blocks  Used Available Use% Mounted on
+/dev/sdb2       68664948 53012  65123884   1% /newdisk
+
+2. 
+/dev/sdb2	 /newdisk 	  ext2        defaults         0   0 
+
+3.
+/dev/fd0         /mnt/extdisk     ext2	      user	       0   0
+
+4.
+fsck /dev/fd0 
+It did 5 passes, checked inodes, then directory structure, directory connectivity, references, and group summary info.
+
+Hw 6
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+16:51:41 up 24 days, 51 min,
+2.
+6 users,
+3.
+load average: 0.00, 0.01, 0.05
+4.
+1,0,99
+5.
+1929MB used, 26MB free
+6. 
+Apparently for me its named, named, named 
+7.
+6 total 
+8.
+4 total 
+9.
+6300 VM, 652 RES
+10.
+Swap partition located at /dev/sda1
+11.
+a. 1976000
+b.325460    
+c.27664     
+d.7813940          
+e. 0 
+12.
+touch /swapfile
+dd if=/dev/zero of=/swapfile bs=1024 count=4096
+mkswap /swapfile
+swapon /swapfile 
+13.
+Swap:      7818032          0    7818032
+14.
+Swap 15G available, 15G free
+
+Hw 7
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+#s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
+2.
+#ca::ctrlaltdel:/sbin/shutdown -t5 -r now
+3.
+5 seconds 
+4.
+*/1 * * * * ls >> cronls.txt
+5.
+at 18:22 -f lscron
+
+
+Hw 8
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+Feb 21 19:10 bzImage
+2.
+#4 SMP Tue Feb 21 19:10:03 PST 2017
+
+3.
+5.6M  bzImage
+2.9M  vmlinuz-generic-2.6.37.6
+5.6M  vmlinuz-huge-2.6.37.6
+
+Hw 9
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+Dont Zap
+2.
+Auto BusMouse GlidePoint GlidePointPS/2 IntelliMouse IMPS/2
+Logitech Microsoft MMHitTab MMSeries Mouseman MouseManPlusPS/2
+MouseSystems NetMousePS/2 NetScrollPS/2 OSMouse PS/2 SysMouse
+ThinkingMouse ThinkingMousePS/2 Xqueue
+2b.
+ps/2
+2c.
+fvwm2
+3a.
+USB logitech optical mouse
+3b.
+1280x1024
+4.
+input/mouse
+5a.
+fvwm2
+5b.
+3 xterms
+5c.
+F1 and F3, one raises and the other raises and focuses 
+6a.
+xintrc.fvwm 
+xterm -n "x1" -g 80x24+0+0 -sb 300&
+xterm -n "x1" -g 80x24-0-0 -sb 300&
+6b.
+change the xinitrc file to say twm at the bottom 
+7a. 
+1280x1024
+7b.
+60.02
+8.
+we made a .xinitrc file, put in :
+xterm -n "x1" -g 80x24+0+0 -sb -sl 300 &
+xsetroot -solid red
+Twm
+
+Hw 10
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+tar -cf /dev/fd0 . #in bobs directory 
+
+2. 
+tar -xpf ~djv/giant.tgz 
+fee fie foe 
+rw r r djv faculty fum
+
+3.
+tar -xpf ~djv/house.txz
+Huff and puff
+
+4.
+Hi there joe
+
+5. 
+ul
+
+6.
+control S 
+stty stop ^Y
+
+Hw 11
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+1.
+3c501.c
+3c503.c
+3c505.c
+2.
+DE203 Turbo
+DE204 Turbo
+DE205 Turbo
+
+3.
+Extra ground pins
+4.
+lab35.net.cecs.csulb.edu
+hostname -f
+5.
+eth0      Link encap:Ethernet  HWaddr 00:22:4d:4c:78:36  
+6.
+          inet addr:134.139.248.35  Bcast:134.139.248.63  Mask:255.255.255.224
+7.
+default         jaguar.net.cecs 0.0.0.0         UG    1      0        0 eth0
+8.
+ddr:127.0.0.1  Mask:255.0.0.0
+9.
+? (134.139.248.40) at 00:22:4d:4c:79:90 [ether] on eth0
+? (134.139.248.33) at 00:01:02:76:98:a8 [ether] on eth0
+? (134.139.248.36) at 00:22:4d:4c:7a:14 [ether] on eth0
+? (134.139.248.34) at 00:22:4d:4c:79:9c [ether] on eth0
+10.
+files, dns
+11.
+nameserver 134.139.248.17
+12.
+search net.cecs.csulb.edu cecs.csulb.edu
+13.
+cheetah and jaguar 
+14.
+localnet        jaguar.net.cecs 255.255.255.224 UG    0      0        0 eth0
+15.
+134.139.43.0 / 134.139.43.255
+16.
+134.139.201.128 / 134.139.201.159
+
+
+Hw 12
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+edit the hosts file to be lab35 instead of lab34
+ifconfig lo 127.0.0.1
+ifconfig eth0 134.139.248.35 netmask 255.255.255.248
+route add default gw 134.139.248.17
+2.
+
+3.
+comment out the telnet server 
+4.
+put in panther in the file
+5.
+portmapper
+status
+ypbind
+rquotad
+nfs
+nlockmgr
+mountd
+6.
+rlogin lab35 bob
+7.
+added puma to the /etc/hosts.equiv on root, actual machine
+8.
+ssh-keygen -t rsa 
+scp the public key to bob 
+made him a .ssh dir, added the key in the dir 
+appended the new key to authorized_keys
+
+
+Hw 13
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+
+1.
+cecsnet 
+cat out the /etc/defaultdomain
+
+2.
+ypwhich 
+cheetah.cecs.csulb.edu
+
+3.
+ypcat passwd
+48
+
+4.
+ypmatch csa476w1
+csa476w1:$1$XTpREDZ2$LFr7Qia7ucyKRfnYu56as0:20023:40:student:/net/cheetah/u3/c/csa476/w1:/bin/bash
+
+5.
+binding 
+/var/yp/binding/cecsnet.1
+/var/yp/binding/cecsnet.2
+
+6.
+ypserver 134.139.248.17
+
+7.
+/usr/sbin/ypbind
+it will start if there is a directory with that file in it 
+
+8.
+it lists files nis on passwd 
+
+9.
+3 panther puma lynx
+
+10.
+kill the process to stop it, run ypbinding to start it up again
+
