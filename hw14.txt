@@ -1,0 +1,40 @@
+Cesar Montelongo
+csa476w1
+lab35.net.cecs.csulb.edu
+# The first version of the line gives write permission to the
+# machine that contains the new load image.
+#/load 134.139.248.34(rw,sync,no_root_squash,no_subtree_check) 134.139.248.43(rw,sync,no_root_squash,no_subtree_check)
+# this version doesn't seem to work correctly
+#/load 134.139.0.0/255.255.0.0(ro,sync,no_subtree_check) 134.139.248.43(rw,sync,no_root_squash,no_subtree_check)
+# This is the version that allows every one to load from the network
+1.
+/load 134.139.0.0/255.255.0.0(ro,sync,no_subtree_check)
+the ip address is allowed read only access to the load directory, any computer that is from csulb
+/sdb/slack13.37-64/slackware64 134.139.0.0/255.255.0.0(ro,sync,no_subtree_check)
+any computer from csulb has read access to the /sdb/slack13.37-64/slackware64 directory
+/sdb/slack13.37/slackware 134.139.0.0/255.255.0.0(ro,sync,no_subtree_check)
+any computer from csulb has read access to the /sdb/slack13.37/slackware directory
+/sdb/slack14.0-64/slackware64 134.139.0.0/255.255.0.0(ro,sync,no_subtree_check)
+any computer from csulb has read access to the /sdb/slack14.0-64/slackware directory
+
+
+2.
+134.139.248.17:/u3 /net/cheetah/u3 nfs  soft,bg,nolock 0 0 
+134.139.248.17:/u4 /net/cheetah/u4 nfs  soft,bg,nolock 0 0 
+
+3.
+aardvark.cecs.csulb.edu/:u
+a. auto.master
+b. rw, suid, dev, auto, exec, async, nouser; file name: /etc/aardvark
+
+4.
+/etc/fstab, line added below
+jaguar:/sdb/slack13.37-64/slackware64 /mnt nfs soft,bg,nolock 0 0 
+
+5.
+changed /etc/exports 
+line added:  /etc cheetah(ro,sync)
+
+6.
+created /etc/auto.jaguar, added the lines : load -soft,intr jaguar.net.cecs.csulb.edu:/load
+added to auto.master: /opt /etc/auto.jaguar
